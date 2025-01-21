@@ -28,3 +28,6 @@ MANIFEST
 
 # Environments
 venv/
+
+# Credentials
+.env
