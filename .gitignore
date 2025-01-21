@@ -23,5 +23,8 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# mypy
+.mypy_cache/
+
 # Environments
 venv/

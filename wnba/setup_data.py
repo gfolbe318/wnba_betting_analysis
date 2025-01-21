@@ -1,4 +1,4 @@
-from .models.team import Team
+from wnba.models.team import Team
 
 teams: list[Team] = [
     Team(

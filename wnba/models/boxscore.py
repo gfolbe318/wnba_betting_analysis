@@ -1,7 +1,7 @@
-from .base import Base
-from .player import Player
-from .team import Team
-from .game import Game
+from wnba.models.base import Base
+from wnba.models.player import Player
+from wnba.models.team import Team
+from wnba.models.game import Game
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Integer, ForeignKey
 
@@ -40,7 +40,7 @@ class BoxScore(Base):
     turnovers: Mapped[int] = mapped_column(Integer)
     fouls: Mapped[int] = mapped_column(Integer)
     net: Mapped[int] = mapped_column(Integer)
-    pts: Mapped[int] = mapped_column(Integer)
+    points: Mapped[int] = mapped_column(Integer)
     
     def __init__(
         self,
@@ -64,7 +64,7 @@ class BoxScore(Base):
         turnovers: int,
         fouls: int,
         net: int,
-        pts: int,
+        points: int,
     ):
         self.player_id = player_id
         self.team_id = team_id
@@ -86,4 +86,4 @@ class BoxScore(Base):
         self.turnovers = turnovers
         self.fouls = fouls
         self.net = net
-        self.pts = pts
+        self.points = points

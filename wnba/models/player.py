@@ -1,5 +1,5 @@
-from .base import Base
-from .team import Team
+from wnba.models.base import Base
+from wnba.models.team import Team
 
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, ForeignKey
@@ -14,7 +14,7 @@ class Player(Base):
     rapid_api_player_id: Mapped[str] = mapped_column(String)
     
     # This is the id of the player within the odds api ecosystem
-    odds_api_player_id: Mapped[str] = mapped_column(String, nullable=True) # Revisit this later
+    odds_api_player_id: Mapped[str | None] = mapped_column(String, nullable=True) # Revisit this later
     
     name_first: Mapped[str] = mapped_column(String)
     name_last: Mapped[str] = mapped_column(String)

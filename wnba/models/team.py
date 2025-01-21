@@ -1,4 +1,4 @@
-from .base import Base
+from wnba.models.base import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String
 
@@ -12,12 +12,12 @@ class Team(Base):
     rapid_api_team_id: Mapped[str] = mapped_column(String)
     
     # This is the id of the team in the odds api ecosystem
-    odds_api_team_id: Mapped[str] = mapped_column(String, nullable=True) # Revisit this later
+    odds_api_team_id: Mapped[str | None] = mapped_column(String, nullable=True) # Revisit this later
     
-    acronym: Mapped[int] = mapped_column(String)
-    city: Mapped[int] = mapped_column(String)
-    team_name: Mapped[int] = mapped_column(String)
-    conference: Mapped[int] = mapped_column(String)
+    acronym: Mapped[str] = mapped_column(String)
+    city: Mapped[str] = mapped_column(String)
+    team_name: Mapped[str] = mapped_column(String)
+    conference: Mapped[str] = mapped_column(String)
     
     def __init__(
         self,
