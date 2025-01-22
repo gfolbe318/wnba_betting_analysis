@@ -1,7 +1,7 @@
-from wnba.routes.boxscores.boxscore_router import boxscore_router
+from wnba_betting_analysis.routes.boxscores.boxscore_router import boxscore_router
 from pydantic import BaseModel
-from wnba.models.game import Game
-from wnba.routes.boxscores.boxscore_utils import get_boxscores_from_game_data
+from wnba_betting_analysis.models.game import Game
+from wnba_betting_analysis.routes.boxscores.boxscore_utils import get_boxscores_from_game_data
 
 from pathlib import Path
 import json

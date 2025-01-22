@@ -1,5 +1,5 @@
 from fastapi.routing import APIRouter
-from wnba.routes.boxscores import boxscore_router
+from wnba_betting_analysis.routes.boxscores import boxscore_router
 
 api_router = APIRouter(prefix="/v1")
 

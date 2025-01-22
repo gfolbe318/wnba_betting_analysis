@@ -1,4 +1,4 @@
-from wnba.models.team import Team
+from wnba_betting_analysis.models.team import Team
 
 teams: list[Team] = [
     Team(

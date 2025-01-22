@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from wnba.routes.router import api_router
+from wnba_betting_analysis.routes.router import api_router
 
 app = FastAPI(debug=True)
 app.include_router(api_router)

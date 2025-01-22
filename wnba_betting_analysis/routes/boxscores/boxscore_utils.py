@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
-from wnba.models.game import Game
-from wnba.models.player_boxscore import PlayerBoxScore
+from wnba_betting_analysis.models.game import Game
+from wnba_betting_analysis.models.player_boxscore import PlayerBoxScore
 
 
 

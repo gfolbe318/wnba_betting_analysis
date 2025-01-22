@@ -1,4 +1,4 @@
-from wnba.models.base import Base
+from wnba_betting_analysis.models.base import Base
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String
 

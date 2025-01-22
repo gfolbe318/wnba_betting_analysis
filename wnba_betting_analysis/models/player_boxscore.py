@@ -1,7 +1,7 @@
-from wnba.models.base import Base
-from wnba.models.player import Player
-from wnba.models.team import Team
-from wnba.models.game import Game
+from wnba_betting_analysis.models.base import Base
+from wnba_betting_analysis.models.player import Player
+from wnba_betting_analysis.models.team import Team
+from wnba_betting_analysis.models.game import Game
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Integer, ForeignKey
 
