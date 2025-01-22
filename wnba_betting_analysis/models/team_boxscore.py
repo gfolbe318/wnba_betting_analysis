@@ -2,7 +2,7 @@ from wnba_betting_analysis.models.base import Base
 from wnba_betting_analysis.models.team import Team
 from wnba_betting_analysis.models.game import Game
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import Integer, ForeignKey
+from sqlalchemy import Integer, String, ForeignKey
 
 class TeamBoxScore(Base):
     __tablename__ = "TeamBoxScore"
@@ -12,6 +12,9 @@ class TeamBoxScore(Base):
     
     # This is the game id within our ecosystem
     game_id: Mapped[int] = mapped_column(ForeignKey(Game.game_id))
+    
+    # This is the game id within the rapid api ecosystem
+    rapid_api_game_id: Mapped[str] = mapped_column(String)
     
     # This is the team id within our ecosystem
     team_id: Mapped[int] = mapped_column(ForeignKey(Team.team_id))
