@@ -9,10 +9,10 @@ class Game(Base):
     # Internal primary key
     game_id: Mapped[int] = mapped_column(primary_key=True)
     
-    # This is the id of the player within the rapid api ecosystem
+    # This is the id of the game within the rapid api ecosystem
     rapid_api_game_id: Mapped[str] = mapped_column(String)
     
-    # This is the id of the player within the odds api ecosystem
+    # This is the id of the game within the odds api ecosystem
     odds_api_game_id: Mapped[str | None] = mapped_column(String, nullable=True) # Revisit this later
         
     # YYYY-MM-DD

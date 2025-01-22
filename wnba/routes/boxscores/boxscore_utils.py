@@ -1,7 +1,8 @@
 from pathlib import Path
 import json
 from wnba.models.game import Game
-from wnba.models.boxscore import BoxScore
+from wnba.models.player_boxscore import PlayerBoxScore
+
 
 
 def get_stat_index(header: str, headers_list: list[str]) -> int:
@@ -18,10 +19,9 @@ def get_stat_index(header: str, headers_list: list[str]) -> int:
     """
     return headers_list.index(header)
 
-
 def get_boxscores_from_game_data(
     json_data: dict
-) -> list[BoxScore]:
+) -> list[PlayerBoxScore]:
     """Returns a list of boxscores from json response
 
     Args:
@@ -31,7 +31,7 @@ def get_boxscores_from_game_data(
         list[BoxScore]: A list of boxscores data models
     """
    
-    box_scores: list[BoxScore] = []
+    box_scores: list[PlayerBoxScore] = []
     for players in json_data["players"]:
         stat_headers: list[str] = players["statistics"][0]["names"]
         
@@ -45,7 +45,7 @@ def get_boxscores_from_game_data(
             # Empty list if the player doesn't play
             if stats:        
                 box_scores.append(
-                    BoxScore(
+                    PlayerBoxScore(
                         player_id=0,
                         team_id=0,
                         opponent_team_id=0,
@@ -70,31 +70,3 @@ def get_boxscores_from_game_data(
                     )
                 )
     return box_scores
-
-
-if __name__ == "__main__":
-    data_path = Path(__file__).parent.joinpath("resources", "sample_game_data.json").absolute()
-    json_data = json.load(data_path.open("r"))
-    
-    rapid_api_home_team_id: str # Convert to game_id
-    rapid_api_away_team_id: str # Convert to game id
-    
-    if json_data["teams"][0]["homeAway"] == "away":
-        rapid_api_away_team_id = json_data["teams"][0]["team"]["id"]
-        rapid_api_home_team_id = json_data["teams"][1]["team"]["id"]
-    else:
-        rapid_api_home_team_id = json_data["teams"][0]["team"]["id"]
-        rapid_api_away_team_id = json_data["teams"][1]["team"]["id"]
-        
-    # Get the date and winning/losing team id from the boxscore    
-    game = Game(
-        json_data["id"],
-        odds_api_game_id=None,
-        date="YYYMMMDD", # Get this from boxscore
-        home_team_id=0, # Fix this
-        away_team_id=0, # Fix this
-        winning_team_id=0, # Fix this
-        losing_team_id=0 # Fix this
-    )
-    
-    box_scores = get_boxscores_from_game_data(json_data)

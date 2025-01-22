@@ -5,14 +5,14 @@ from wnba.models.game import Game
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Integer, ForeignKey
 
-class BoxScore(Base):
-    __tablename__ = "BoxScore"
+class PlayerBoxScore(Base):
+    __tablename__ = "PlayerBoxScore"
     
     # Internal primary key
-    boxscore_id: Mapped[int] = mapped_column(primary_key=True)
+    player_boxscore_id: Mapped[int] = mapped_column(primary_key=True)
     
-    # This is the player id within the rapid api ecosystem
-    player_id: Mapped[int] = mapped_column(ForeignKey(Player.rapid_api_player_id))
+    # This is the player id within our ecosystem
+    player_id: Mapped[int] = mapped_column(ForeignKey(Player.player_id))
     
     # This is the id of the team that the player was on when this game occurred
     team_id: Mapped[int] = mapped_column(ForeignKey(Team.team_id))
