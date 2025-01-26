@@ -9,3 +9,11 @@ python -m venv venv
 pip install -r .\requirements.txt
 pip install -e .
 ```
+
+### Running the app
+
+To run the app, run the following command:
+
+```
+python .\wnba_betting_analysi
+```
